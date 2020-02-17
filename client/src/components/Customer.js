@@ -19,7 +19,5 @@ class Customer extends React.Component {
     }
 }
 
-
-
 //다른 컴포넌트에서 사용가능하게 함
 export default Customer;
