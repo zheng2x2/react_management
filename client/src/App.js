@@ -109,7 +109,6 @@ class App extends Component {
             <img src={logo} className="App-logo" lat="logo"alt="logo" />
           </div>
         </Paper>
-        
       </div>
     )
   }
