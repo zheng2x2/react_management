@@ -71,7 +71,10 @@ class App extends Component {
     this.timer = setInterval(this.progress, 20); //0.02마다 progress 함수 실행
     
     this.callApi()
-      .then(res => this.setState({customers : res}))
+      .then(res => {
+        console.log(res);
+        this.setState({customers : res})
+      })
       .catch(err => console.log(err));
   }
 
