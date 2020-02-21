@@ -44,9 +44,27 @@ shouldComponetUpdate() -> render()
 
 class App extends Component {
 
-  state = {
-    customers : "", //변경될수있는데이터를처리하려고 할때
-    completed : 0
+  // state = {
+  //   customers : "", //변경될수있는데이터를처리하려고 할때
+  //   completed : 0
+  // }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      customers : '',
+      completed : 0
+    }
+  }
+
+  stateRefresh = () => {
+    this.setState({
+      customers : '',
+      completed : 0
+    });
+    this.callApi()
+      .then(res => this.setState({customers : res}))
+      .catch(err => console.log(err));
   }
 
   componentDidMount() {
@@ -104,7 +122,7 @@ class App extends Component {
               }
             </TableBody>
           </Table>
-          <CustomerAdd/>
+          <CustomerAdd stateRefresh={this.stateRefresh} />
           <div className="App-header">
             <img src={logo} className="App-logo" lat="logo"alt="logo" />
           </div>
